@@ -1,24 +1,16 @@
 import React, { useState } from 'react';
-
+import './Room.css'
 function Room() {
     const [isLit,setLit] = useState(true)
     let [age,setAge] = useState(21)
-    const updateLit = () =>{
-        
-        console.log("button Clicked")
-        setLit(!isLit)
-    }
-    const increaseAge = ()=>{
-        setAge(++age)
-    }
     
   return (
-   <div>
+   <div className= {`room ${isLit ? "lit" : "dark"}`}>
       <p>The room is : {isLit? "Lit" : 'Dark'} </p>
       <p>The age is : {age}</p>
         <br/>
-        <button onClick = {updateLit}> On/Off </button>
-        <button onClick = {increaseAge}>Increase Age</button>
+        <button onClick = {()=> setLit(!isLit)}> On/Off </button>
+        <button onClick = {()=> setAge(++age)}>Increase Age</button>
     </div>
   );
 }
